@@ -1,0 +1,8 @@
+[routers]
+router01
+router02
+router03
+
+[servers]
+server01
+server02
