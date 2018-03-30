@@ -178,4 +178,69 @@ We will now control entries in the OSPF FIB by manipulating cost for the OSPF in
 
 ### OSPF: Multiple Areas and LSA Types
 
-### Debugging OSPF
+OSPF is a decentralized routing protocol. Each router in OSPF knows the entire topology (using the Reliable Flooding procedure mentioned in the class lectures). This topology information is stored in the LSDB. This makes LSDB very big. The overhead for both memory (to store such a large database) and processing (to process LSDB for shortest paths) increases significantly with a large topology. To reduce this oevrhead, OSPF has the concept of areas which limits the
+LSDB size. In this section, we observe the impact of the area concept on OSPF size. We will use two areas: Area0 (backbone area) and Area1 (Non-backbone area). We can have multiple non-backbone areas in an OSPF process. Recall that the routers participating in multiple areas are termed as Area Border Routers (ABR).
+We will configure router01 and router03 as ABR. The router interfaces will belong to the following areas.
+router02 all interfaces in area 0.
+router01 swp1, router-id in area 0 and swp2 in area 1.
+router03 swp1 in area 0 and swp2,swp24 and router-id in area 1.
+
+   1. On router01 change the network 10.12.1.0/24 from area 0 to area 1.
+     ```
+     net del ospf network 10.12.1.0/24 area 0.0.0.0
+     net add ospf network 10.12.1.0/24 area 0.0.0.1
+     net pending
+     net commit
+     ```
+
+   2. On router03 change the network 10.12.1.0/24, 10.12.4.0/24 and 103.1.1.1/32 from area 0 to area 1
+    ```
+    net del ospf network 10.12.4.0/24 area 0.0.0.0
+    net del ospf network 10.12.1.0/24 area 0.0.0.0
+    net del ospf network 103.1.1.1/32 area 0.0.0.0
+    net add ospf network 103.1.1.1/32 area 0.0.0.1
+    net add ospf network 10.12.1.0/24 area 0.0.0.1
+    net add ospf network 10.12.4.0/24 area 0.0.0.1
+    net pending
+    net commit
+    ```
+   3. Verification
+     * Verify OSPF enable interface
+       On each router, verify that all the interfaces are OSPF enabled. You can use the command:
+       ```net show ospf interface```
+     
+     * Verify OSPF neighbor
+       On each router, verify its OSPF neighbor using the command:
+       ```net show ospf neighbor```
+
+     * Verify LSDB
+       On each router, verify Link State Database (LSDB) using the command:
+       ```net show ospf database```
+       Note the reduced size of LSDB as compared to the single area configuration. Can you figure out the topology seen by router01 and Router03? (HINT: a network in the other area appears directly connected to the ABR router.)
+
+     * Verify ABR
+       On each router, verify Area Border Routers (ABR) using the command:
+       ```net show ospf border-router```
+
+    4. OSPF LSA Types
+       In OSPF, LSDB is formed using Link State Advertisement (LSA) update messages. The LSA from within the area or outside area need to be differentiated. For this OSPF uses different LSA types. For example LSA type 1 is for advertisement from within the same area. Similarly LSA type 3 is used for summary of router advertisement from one area into other. OSPF has many LSA types for different purposes. In this lab, we will observe the type 1 and type 3 LSA.
+
+       * Observe the LSDB on router03, using the command
+         ```net show ospf database```
+       * How many net summary link states (give the different LINK ID) you see in the output? How many advertising routers (give ADV router detail) you observe?
+Notice that the summary LSA (TYPE3) is from ABR. Router Link states are from the same area router. In this case, these routes are populated by LSA type1.
+       * Repeat the same on router01 and router02.
+
+### Debugging OSPF [Taken from Cumulus Documentation](https://docs.cumulusnetworks.com/display/DOCS/Open+Shortest+Path+First+-+OSPF+-+Protocol)
+     1. The three most important states while troubleshooting the protocol are:
+
+       * Neighbors, with net show ospf neighbor. This is the starting point to debug neighbor states (also see tcpdump below).
+
+       * Database, with net show ospf database. This is the starting point to verify that the LSDB is, in fact, synchronized across all routers in the network. For example, sweeping through the output of show ip ospf database router taken from all routers in an area will ensure if the topology graph building process is complete; that is, every node has seen all the other nodes in the area.
+
+       * Routes, with net show route ospf. This is the outcome of SPF computation that gets downloaded to the forwarding table, and is the starting point to debug, for example, why an OSPF route is not being forwarded correctly.
+
+     2. Use tcpdump to capture OSPF packets on router01 interface swp1:
+
+       ```sudo tcpdump -v -i swp1 ip proto ospf```
+        Observe the OSPF update messages.
