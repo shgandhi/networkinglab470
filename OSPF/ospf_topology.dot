@@ -1,0 +1,12 @@
+graph dc1 {
+ "router01" [function="spine" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "router02" [function="leaf" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "router03" [function="leaf" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "server01" [function="host" memory="512" config="./helper_scripts/extra_server_config.sh"]
+ "server02" [function="host" memory="512" config="./helper_scripts/extra_server_config.sh"]
+   "router01":"swp1" -- "router02":"swp1"
+   "router01":"swp2" -- "router03":"swp2"
+   "router02":"swp2" -- "router03":"swp1"
+   "server01":"eth1" -- "router02":"swp24"
+   "server02":"eth1" -- "router03":"swp24"
+}

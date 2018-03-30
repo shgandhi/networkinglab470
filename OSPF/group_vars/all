@@ -1,0 +1,7 @@
+# networking
+networks:
+    "10.12.1.0/24"
+	source: "router01"
+    "10.12.3.0/24"
+        source: "router03"
+
