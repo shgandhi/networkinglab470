@@ -9,21 +9,21 @@ Each disk image contains a single VM for a standalone switch. We will clone the 
 
 ### Download and Install the Hypervisor/Developer Environment
 #### MAC OS SETUP
-Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/master/documentation/macos/README.md). Follow only steps 1-4 i.e.
+Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/master/documentation/macos/README.md). Follow only steps 1-5 i.e.
   - Installing XCode & XCode Tools
   - Installing Homebrew
   - Installing Virtualbox
-	- Installing VirtualBox Extension Pack
-	- Installing Vagrant
+  - Installing VirtualBox Extension Pack
+  - Installing Vagrant
  
 #### UBUNTU 16.04 SETUP
-Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/master/documentation/linux/README.md). Follow only steps 1-4 i.e.
+Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/master/documentation/linux/README.md). Follow only steps 1-3 i.e.
   - Installing Virtualbox
-	- Installing Git
-	- Installing Vagrant
+  - Installing Git
+  - Installing Vagrant
   
 #### WINDOWS SETUP
-Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/master/documentation/windows/README.md). Follow only steps 1-4 i.e.
+Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/master/documentation/windows/README.md). Follow only steps 1-3 i.e.
   - Installing Virtualbox
-	- Installing Git
-	- Installing Vagrant
+  - Installing Git
+  - Installing Vagrant
