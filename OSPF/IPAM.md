@@ -4,7 +4,7 @@ IPAM
 IP Address Schema for OSPF Experiment.
 
 | Device | Interface Name | IP Address | 
-|-----|-----|-----|-----|
+|-----|-----|-----|
 | router01 | swp1   | 10.12.5.1/24 | 
 | router01 | swp2   | 10.12.1.1/24 | 
 | router01 | router-id   | 101.1.1.1/32 | 
