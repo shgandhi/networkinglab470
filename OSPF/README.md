@@ -36,6 +36,9 @@ Enter ```Ctrl+X``` to quit and enter ```Y``` to save the file. Enter the followi
 Execute steps 1. - 4. for router02 and router03.
      
 ### Configure Network Interfaces
+
+  ![OSPF Topology](https://github.com/shgandhi/networkinglab470/blob/master/OSPF/ospf_topology.jpg)
+  
   1. On router01
      
     vagrant ssh router01
@@ -106,7 +109,7 @@ Execute steps 1. - 4. for router02 and router03.
    
 
 ### Configure OSPF
-Initially we will put all interfaces on all the routers in same area i.e., area 0 (or area 0.0.0.0), and verify end to end connectivity.
+Initially we will put all interfaces on all the routers in same area i.e., area 0 (or area 0.0.0.0), and verify end to end connectivity. 
 
    1. On router01
     
