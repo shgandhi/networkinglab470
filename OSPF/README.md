@@ -37,6 +37,8 @@ Execute steps 1. - 4. for router02 and router03.
      
 ### Configure Network Interfaces
 
+  Refer IP Address Management Schema [here](https://github.com/shgandhi/networkinglab470/blob/master/OSPF/IPAM.md) to identify ip addresses allocated to each interface in the topology below.
+  
   ![OSPF Topology](https://github.com/shgandhi/networkinglab470/blob/master/OSPF/ospf_topology.jpg)
   
   1. On router01
