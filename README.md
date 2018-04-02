@@ -2,10 +2,6 @@
 ### Spring 2018
 
 ## Getting Started
-### Download the Cumulus VX Image
-Cumulus VX images for all supported platforms are available from the Cumulus Networks website: https://cumulusnetworks.com/products/cumulus-vx/download/.
-
-Each disk image contains a single VM for a standalone switch. We will clone the image to build the network.
 
 ### Download and Install the Hypervisor/Developer Environment
 #### MAC OS SETUP
@@ -27,3 +23,10 @@ Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/mas
   - Installing Virtualbox
   - Installing Git
   - Installing Vagrant
+  
+### SET UP THE TOPOLOGY
+Executing the last command should take ~15-20 minutes.
+- git clone https://github.com/shgandhi/networkinglab470.git
+- cd networkinglab470/OSPF
+- vagrant status
+- vagrant up
