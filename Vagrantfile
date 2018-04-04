@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
   simid = 1522351716
 
   config.vm.provider "virtualbox" do |v|
-    v.gui=false
+    v.gui=true
 
   end
 
