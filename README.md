@@ -26,7 +26,8 @@ Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/mas
   
 ### SET UP THE TOPOLOGY
 Executing the last command should take ~15-20 minutes.
-- git clone https://github.com/shgandhi/networkinglab470.git
-- cd networkinglab470/OSPF
-- vagrant status
-- vagrant up
+
+    git clone https://github.com/shgandhi/networkinglab470.git
+    cd networkinglab470/OSPF
+    vagrant status
+    vagrant up
