@@ -126,6 +126,7 @@ Initially we will put all interfaces on all the routers in same area i.e., area 
     net add ospf network 102.1.1.1/32 area 0.0.0.0
     net add ospf network 10.12.5.0/24 area 0.0.0.0
     net add ospf network 10.12.3.0/24 area 0.0.0.0
+    net add ospf network 10.12.2.0/24 area 0.0.0.0
     
    3. On router03
    
@@ -133,6 +134,7 @@ Initially we will put all interfaces on all the routers in same area i.e., area 
     net add ospf network 103.1.1.1/32 area 0.0.0.0
     net add ospf network 10.12.1.0/24 area 0.0.0.0
     net add ospf network 10.12.3.0/24 area 0.0.0.0
+    net add ospf network 10.12.4.0/24 area 0.0.0.0
     
    4. Verification
      * Verify OSPF interfaces
