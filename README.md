@@ -26,7 +26,21 @@ Refer to guide [here](https://github.com/CumulusNetworks/cldemo-vagrant/blob/mas
   
 ### SET UP THE TOPOLOGY
 Executing the last command should take ~15-20 minutes.
-- git clone https://github.com/shgandhi/networkinglab470.git
-- cd networkinglab470/OSPF
-- vagrant status
-- vagrant up
+
+    git clone https://github.com/shgandhi/networkinglab470.git
+    cd networkinglab470/OSPF
+    vagrant status
+    vagrant up
+    
+### WORKING WITH VAGRANT
+
+These have been taken from [Vagrant Documentation](https://www.vagrantup.com/docs/cli/). 
+
+| Command | Outcome |
+|---|---|
+| vagrant up | This command creates and configures guest machines according to your Vagrantfile. |
+| vagrant destroy | This command stops the running machine Vagrant is managing and destroys all resources that were created during the machine creation process. |
+| vagrant suspend | This resumes a Vagrant managed machine that was previously suspended |
+| vagrant resume | This suspends the guest machine Vagrant is managing, rather than fully shutting it down or destroying it. |
+| vagrant status | This will tell you the state of the machines Vagrant is managing. |
+| vagrant ssh [name/id] | This will SSH into a running Vagrant machine and give you access to a shell. |
