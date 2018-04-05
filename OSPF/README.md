@@ -81,7 +81,7 @@ Execute steps 1. - 4. for router02 and router03.
    4. On Server01
      
     vagrant ssh server01
-    sudo ifconfig eth1 ip address 10.12.2.2/24 up
+    sudo ifconfig eth1 10.12.2.2/24 up
     sudo route add default gw 10.12.2.1
     ifconfig eth1
     ping 10.12.2.1
@@ -90,7 +90,7 @@ Execute steps 1. - 4. for router02 and router03.
    5. On Server02
      
     vagrant ssh server02
-    sudo ifconfig eth1 ip address 10.12.4.2/24 up
+    sudo ifconfig eth1 10.12.4.2/24 up
     sudo route add default gw 10.12.4.1
     ifconfig eth1
     ping 10.12.4.1
@@ -104,7 +104,7 @@ Execute steps 1. - 4. for router02 and router03.
      
    2. View the routing table of router01. Ignore entries for the management network 10.0.2.0/24 and ipv6 routes for now. After seeing the routing table, do you find any missing routes in the table?  
      
-     net show ip route
+     net show route
      
    3. Repeat steps 1. - 2. for router02 and router03.
    4. Ping from server01 (10.12.2.2) to server02 (10.12.4.2). Does the ping work? Why not?
