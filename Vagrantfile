@@ -78,10 +78,9 @@ SCRIPT
 Vagrant.configure("2") do |config|
 
   simid = 1522351716
-
   config.vm.provider "virtualbox" do |v|
-    v.gui=true
-
+    v.gui=false
+    v.customize ["modifyvm", :id, "--cableconnected1", "on"]
   end
 
 
@@ -100,7 +99,7 @@ Vagrant.configure("2") do |config|
     end
     #   see note here: https://github.com/pradels/vagrant-libvirt#synced-folders
     device.vm.synced_folder ".", "/vagrant", disabled: true
-
+    device.vm.network "forwarded_port", guest: 22, host: 2201, host_ip: "127.0.0.1", id: 'ssh'
 
 
     # NETWORK INTERFACES
@@ -177,7 +176,7 @@ end
     end
     #   see note here: https://github.com/pradels/vagrant-libvirt#synced-folders
     device.vm.synced_folder ".", "/vagrant", disabled: true
-
+    device.vm.network "forwarded_port", guest: 22, host: 2202, host_ip: "127.0.0.1", id: 'ssh'
 
 
     # NETWORK INTERFACES
@@ -262,6 +261,7 @@ end
     end
     #   see note here: https://github.com/pradels/vagrant-libvirt#synced-folders
     device.vm.synced_folder ".", "/vagrant", disabled: true
+    device.vm.network "forwarded_port", guest: 22, host: 2203, host_ip: "127.0.0.1", id: 'ssh'
 
 
 
@@ -347,7 +347,7 @@ end
     end
     #   see note here: https://github.com/pradels/vagrant-libvirt#synced-folders
     device.vm.synced_folder ".", "/vagrant", disabled: true
-
+    device.vm.network "forwarded_port", guest: 22, host: 2204, host_ip: "127.0.0.1", id: 'ssh'
 
 
     # NETWORK INTERFACES
@@ -411,7 +411,7 @@ end
     end
     #   see note here: https://github.com/pradels/vagrant-libvirt#synced-folders
     device.vm.synced_folder ".", "/vagrant", disabled: true
-
+    device.vm.network "forwarded_port", guest: 22, host: 2205, host_ip: "127.0.0.1", id: 'ssh'
 
 
     # NETWORK INTERFACES
