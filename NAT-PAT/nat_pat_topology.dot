@@ -1,0 +1,24 @@
+graph dc1 {
+ "spine01" [function="spine" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "spine02" [function="spine" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "leaf01" [function="leaf" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"] 
+ "leaf02" [function="leaf" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "leaf03" [function="leaf" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"]
+ "leaf04" [function="leaf" os="CumulusCommunity/cumulus-vx" memory="768" config="./helper_scripts/extra_switch_config.sh"] 
+ "server01" [function="host" memory="512" config="./helper_scripts/extra_server_config.sh"]
+ "server02" [function="host" memory="512" config="./helper_scripts/extra_server_config.sh"]
+ "server03" [function="host" memory="512" config="./helper_scripts/extra_server_config.sh"]
+ "server04" [function="host" memory="512" config="./helper_scripts/extra_server_config.sh"]
+   "leaf01":"swp1" -- "spine01":"swp1"
+   "leaf01":"swp2" -- "spine02":"swp1"
+   "leaf02":"swp1" -- "spine01":"swp2"
+   "leaf02":"swp2" -- "spine02":"swp2"
+   "leaf03":"swp1" -- "spine01":"swp3"
+   "leaf03":"swp2" -- "spine02":"swp3"
+   "leaf04":"swp1" -- "spine01":"swp4"
+   "leaf04":"swp2" -- "spine02":"swp4"
+   "server01":"eth1" -- "leaf01":"swp24"
+   "server02":"eth1" -- "leaf02":"swp24"
+   "server03":"eth1" -- "leaf03":"swp24"
+   "server04":"eth1" -- "leaf04":"swp24"
+}
