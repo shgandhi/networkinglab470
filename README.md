@@ -34,6 +34,7 @@ Executing the last command should take ~15-20 minutes.
     
 ### WORKING WITH VAGRANT
 
+
 These have been taken from [Vagrant Documentation](https://www.vagrantup.com/docs/cli/). 
 
 | Command | Outcome |
