@@ -119,6 +119,8 @@ Initially we will put all interfaces on all the routers in same area i.e., area 
     net add ospf network 101.1.1.1/32 area 0.0.0.0
     net add ospf network 10.12.5.0/24 area 0.0.0.0
     net add ospf network 10.12.1.0/24 area 0.0.0.0
+    net pending
+    net commit
     
    2. On router02
     
@@ -127,6 +129,8 @@ Initially we will put all interfaces on all the routers in same area i.e., area 
     net add ospf network 10.12.5.0/24 area 0.0.0.0
     net add ospf network 10.12.3.0/24 area 0.0.0.0
     net add ospf network 10.12.2.0/24 area 0.0.0.0
+    net pending
+    net commit
     
    3. On router03
    
@@ -135,14 +139,16 @@ Initially we will put all interfaces on all the routers in same area i.e., area 
     net add ospf network 10.12.1.0/24 area 0.0.0.0
     net add ospf network 10.12.3.0/24 area 0.0.0.0
     net add ospf network 10.12.4.0/24 area 0.0.0.0
+    net pending
+    net commit
     
    4. Verification
-     * Verify OSPF interfaces
-       On each router, verify that all the interfaces are OSPF-enabled. You can use the command: ```net show ospf interface <interface-name>```
-     * Verify OSPF neighbor
-       On each router, verify its OSPF neighbors using the command: ```net show ospf neighbor```
-     * Verify Connectivity
-       Let's ping now again from server01 (10.12.2.2) to server02 (10.12.4.2). Does the ping work? Why?
+      * Verify OSPF interfaces
+        On each router, verify that all the interfaces are OSPF-enabled. You can use the command: ```net show ospf interface <interface-name>```
+      * Verify OSPF neighbor
+        On each router, verify its OSPF neighbors using the command: ```net show ospf neighbor```
+      * Verify Connectivity
+        Let's ping now again from server01 (10.12.2.2) to server02 (10.12.4.2). Does the ping work? Why?
 
 
 ### How do RIB and FIB look with OSPF?
