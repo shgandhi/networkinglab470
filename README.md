@@ -1,5 +1,5 @@
 ## ECE 470 LAB 
-### Spring 2018
+### Spring 2019
 
 ## Getting Started
 
