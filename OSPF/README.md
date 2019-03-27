@@ -60,7 +60,7 @@ Execute steps 1. - 4. for router02 and router03.
     net add interface swp24 ip address 10.12.2.1/24
     net pending
     net commit
-    net show interace swp1
+    net show interface swp1
     net show interface swp2
     net show interface swp24
     exit
@@ -73,7 +73,7 @@ Execute steps 1. - 4. for router02 and router03.
     net add interface swp24 ip address 10.12.4.1/24
     net pending
     net commit
-    net show interace swp1
+    net show interface swp1
     net show interface swp2
     net show interface swp24
     exit
@@ -216,15 +216,15 @@ router03 swp1 in area 0 and swp2,swp24 and router-id in area 1.
     net commit
     
    3. Verification
-     * Verify OSPF enable interface
+      * Verify OSPF enable interface
        On each router, verify that all the interfaces are OSPF enabled. You can use the command:`net show ospf interface`
-     * Verify OSPF neighbor
+      * Verify OSPF neighbor
        On each router, verify its OSPF neighbor using the command:`net show ospf neighbor`
-     * Verify LSDB
+      * Verify LSDB
        On each router, verify Link State Database (LSDB) using the command:
        ```net show ospf database```
        Note the reduced size of LSDB as compared to the single area configuration. Can you figure out the topology seen by router01 and Router03? (HINT: a network in the other area appears directly connected to the ABR router.)
-     * Verify ABR
+      * Verify ABR
        On each router, verify Area Border Routers (ABR) using the command:
        ```net show ospf border-router```
 
